@@ -1,20 +1,24 @@
 package fr.univtln.bruno.test.simple.personne;
 
-import fr.univtln.bruno.test.simple.jsoncoder.JSONCoder;import fr.univtln.bruno.test.simple.personne.Chien;
-import fr.univtln.bruno.test.simple.personne.Personne;
+import fr.univtln.bruno.test.simple.jsoncoder.JSONCoder;
 
 import javax.websocket.DecodeException;
 import javax.websocket.EncodeException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.lang.String;import java.lang.System;import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by bruno on 23/03/14.
  */
 public class Main {
+
+    public static class ChienJSONCoder extends JSONCoder<List<Chien>> { }
+
+    public static class PersonneJSONCoder extends JSONCoder<List<Personne>> { }
+
 
     public static void main(String[] args) throws IOException, EncodeException {
         Chien c1 = new Chien(1, "Rex");
@@ -37,28 +41,26 @@ public class Main {
         StringWriter personneStringWriter = new StringWriter();
 
 
-        JSONCoder<List<Chien>> jsonCoderChiens = new JSONCoder<>();
+        ChienJSONCoder jsonCoderChiens = new ChienJSONCoder();
         jsonCoderChiens.init();
         jsonCoderChiens.encode(listeChiens, chienStringWriter);
         String chiensJSON = chienStringWriter.toString();
         System.out.println("Les chiens en JSON: ");
         System.out.println(chiensJSON);
 
-        JSONCoder<List<Personne>> jsonCoderPersonnes = new JSONCoder<>();
+        PersonneJSONCoder jsonCoderPersonnes = new PersonneJSONCoder();
         jsonCoderPersonnes.init();
         jsonCoderPersonnes.encode(listPersonnes, personneStringWriter);
         String personnesJSON = personneStringWriter.toString();
         System.out.println("Les personnes en JSON: ");
         System.out.println(personnesJSON);
 
-        /*
         try {
             List<Chien> newChiens = jsonCoderChiens.decode(new StringReader(chiensJSON));
             System.out.println(newChiens);
         } catch (DecodeException e) {
             e.printStackTrace();
-        }*/
-
+        }
 
         try {
             List<Personne> newPersonnes = jsonCoderPersonnes.decode(new StringReader(personnesJSON));

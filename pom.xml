@@ -7,6 +7,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
+    <repositories>
+        <repository>
+            <id>lsispublic</id>
+            <url>https://lsis.univ-tln.fr/maven/content/groups/lsispublicrepositories/</url>
+        </repository>
+    </repositories>
+
     <groupId>fr.univtln.bruno.test.simple.personne</groupId>
     <artifactId>SimplePersonne</artifactId>
     <version>1.0.1</version>

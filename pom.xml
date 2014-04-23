@@ -9,10 +9,22 @@
 
     <groupId>fr.univtln.bruno.test.simple.personne</groupId>
     <artifactId>SimplePersonne</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
 
-    <name>Personne</name>
+    <properties>
+        <fr.univtln.bruno.mainClass>fr.univtln.bruno.test.simple.personne.Main</fr.univtln.bruno.mainClass>
+    </properties>
+
+    <name>SimplePersonne</name>
     <url>http://maven.apache.org</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>fr.univtln.bruno.test.simple.jsoncoder</groupId>
+            <artifactId>JSONCoder</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

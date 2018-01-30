@@ -10,7 +10,7 @@
 
     <groupId>fr.univtln.bruno.test.simple.personne</groupId>
     <artifactId>SimplePersonne</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.7</version>
     <packaging>jar</packaging>
 
     <properties>
